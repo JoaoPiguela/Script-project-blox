@@ -1,0 +1,1721 @@
+# Script-project-blox
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Script blox fruits", "DarkTheme")
+
+local Tab = Window:NewTab("Discord")
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Join server>Entrar no Discord</join server>
+    <style>
+        .discord-button {
+            background-color: #7fff00;
+            color: green;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .discord-button:hover {
+            background-color: #5b6eae;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://discord.gg/tpGkscTC" class="join Server">Join my server of Discord</a>
+</body>
+</html>
+
+local Tab = Window:NewTab("farm")
+Section:NewButton("Auto farm level", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script para Auto Farm de nível em Blox Fruits
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+-- Função para encontrar e aceitar quests
+function acceptQuest()
+    -- Código para encontrar o NPC de quest e aceitar a quest
+    -- Exemplo: Procurar NPC, interagir e aceitar a quest
+end
+
+-- Função para farmar inimigos
+function farmEnemies()
+    for _, enemy in pairs(workspace.Enemies:GetChildren()) do
+        if enemy:FindFirstChild("Humanoid") and enemy.Humanoid.Health > 0 then
+            humanoidRootPart.CFrame = enemy.HumanoidRootPart.CFrame
+            wait(0.5) -- Espera meio segundo para garantir o ataque
+        end
+    end
+end
+
+-- Loop principal para Auto Farm
+while true do
+    acceptQuest()
+    farmEnemies()
+    wait(1) -- Espera 1 segundo antes de repetir o loop
+end
+
+
+Section:NewButton("auto farm bone", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script para Auto Farm de ossos em Blox Fruits
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+-- Função para farmar ossos
+function farmBones()
+    while true do
+        for _, enemy in pairs(workspace.Enemies:GetChildren()) do
+            if enemy:FindFirstChild("Humanoid") and enemy.Humanoid.Health > 0 then
+                humanoidRootPart.CFrame = enemy.HumanoidRootPart.CFrame
+                wait(0.5) -- Espera meio segundo para garantir o ataque
+                -- Código adicional para coletar ossos se necessário
+            end
+        end
+        wait(1) -- Espera 1 segundo antes de repetir o loop
+    end
+end
+
+-- Iniciar a função de Auto Farm de ossos
+spawn(farmBones)
+
+
+
+Section:NewButton("auto trade bone", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script para Auto Trade de ossos em Blox Fruits
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+-- Função para encontrar o NPC de troca de ossos
+function findBoneTrader()
+    for _, npc in pairs(workspace.NPCs:GetChildren()) do
+        if npc.Name == "Death King" then
+            return npc
+        end
+    end
+    return nil
+end
+
+-- Função para realizar a troca de ossos
+function tradeBones()
+    local boneTrader = findBoneTrader()
+    if boneTrader then
+        humanoidRootPart.CFrame = boneTrader.HumanoidRootPart.CFrame
+        wait(1) -- Espera 1 segundo para garantir a interação
+        -- Código para interagir e trocar ossos
+        -- Exemplo: Enviar evento remoto para realizar a troca
+    end
+end
+
+-- Loop principal para Auto Trade de ossos
+while true do
+    tradeBones()
+    wait(10) -- Espera 10 segundos antes de procurar novamente
+end
+
+
+
+
+
+
+Section:NewButton("auto raid pirate It's not working", "ButtonInfo", function()
+    print("Clicked")
+end)
+
+
+
+
+
+
+Section:NewButton("Auto cake prince", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script para auto spawn do Cake Prince, derrotar NPCs e o Cake Prince na Cake Island
+
+local function teleportToCakeIsland()
+    -- Teleporta o jogador para a Cake Island
+    local player = game.Players.LocalPlayer
+    player.Character.HumanoidRootPart.CFrame = CFrame.new(0, 100, 0) -- Coordenadas da Cake Island
+end
+
+local function defeatNPCs()
+    -- Derrota os NPCs especificados
+    local npcs = {"Cookie Maker", "Cake Guardian", "Cook Employee", "Chief Baker"}
+    for _, npcName in ipairs(npcs) do
+        for _, npc in pairs(game.Workspace.NPCs:GetChildren()) do
+            if npc.Name == npcName then
+                while npc.Humanoid.Health > 0 do
+                    player.Character.HumanoidRootPart.CFrame = npc.HumanoidRootPart.CFrame
+                    wait(0.1)
+                    game.ReplicatedStorage.Remotes.Combat:FireServer(npc)
+                end
+            end
+        end
+    end
+end
+
+local function teleportToCakePrince()
+    -- Teleporta o jogador para o Cake Prince
+    local cakePrince = game.Workspace:FindFirstChild("Cake Prince")
+    if cakePrince then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cakePrince.HumanoidRootPart.CFrame
+    end
+end
+
+local function defeatCakePrince()
+    -- Derrota o Cake Prince
+    local cakePrince = game.Workspace:FindFirstChild("Cake Prince")
+    if cakePrince then
+        while cakePrince.Humanoid.Health > 0 do
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cakePrince.HumanoidRootPart.CFrame
+            wait(0.1)
+            game.ReplicatedStorage.Remotes.Combat:FireServer(cakePrince)
+        end
+    end
+end
+
+local function autoSpawnCakePrince()
+    -- Auto spawn do Cake Prince e teleporte
+    while true do
+        teleportToCakeIsland()
+        defeatNPCs()
+        teleportToCakePrince()
+        defeatCakePrince()
+        wait(10) -- Intervalo entre os spawns
+    end
+end
+
+-- Inicia o script
+autoSpawnCakePrince()
+
+
+
+
+
+Section:NewButton("auto Mastery gun", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script para auto masterizar armas (guns) no Blox Fruits
+
+local function teleportToNPC(npc)
+    -- Teleporta o jogador para o NPC
+    local player = game.Players.LocalPlayer
+    player.Character.HumanoidRootPart.CFrame = npc.HumanoidRootPart.CFrame
+end
+
+local function defeatNPC(npc)
+    -- Derrota o NPC
+    local player = game.Players.LocalPlayer
+    while npc.Humanoid.Health > 0 do
+        player.Character.HumanoidRootPart.CFrame = npc.HumanoidRootPart.CFrame
+        wait(0.1)
+        game.ReplicatedStorage.Remotes.Combat:FireServer(npc)
+    end
+end
+
+local function autoMasteryGun()
+    -- Auto masterização de armas (guns)
+    while true do
+        for _, npc in pairs(game.Workspace.NPCs:GetChildren()) do
+            if npc:FindFirstChild("Humanoid") and npc.Humanoid.Health > 0 then
+                teleportToNPC(npc)
+                defeatNPC(npc)
+            end
+        end
+        wait(5) -- Intervalo entre as ações
+    end
+end
+
+-- Inicia o script
+
+
+
+
+
+
+
+Section:NewButton("auto Mastery Sword", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script para auto masterizar espadas (swords) no Blox Fruits
+
+local function teleportToNPC(npc)
+    -- Teleporta o jogador para o NPC
+    local player = game.Players.LocalPlayer
+    player.Character.HumanoidRootPart.CFrame = npc.HumanoidRootPart.CFrame
+end
+
+local function defeatNPC(npc)
+    -- Derrota o NPC
+    local player = game.Players.LocalPlayer
+    while npc.Humanoid.Health > 0 do
+        player.Character.HumanoidRootPart.CFrame = npc.HumanoidRootPart.CFrame
+        wait(0.1)
+        game.ReplicatedStorage.Remotes.Combat:FireServer(npc)
+    end
+end
+
+local function autoMasterySword()
+    -- Auto masterização de espadas (swords)
+    while true do
+        for _, npc in pairs(game.Workspace.NPCs:GetChildren()) do
+            if npc:FindFirstChild("Humanoid") and npc.Humanoid.Health > 0 then
+                teleportToNPC(npc)
+                defeatNPC(npc)
+            end
+        end
+        wait(5) -- Intervalo entre as ações
+    end
+end
+
+-- Inicia o script
+autoMasterySword()
+
+
+
+
+Section:NewButton("Auto chest", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de Auto Coletor de Baús para Blox Fruits
+
+-- Função para coletar baús
+function coletarBaus()
+    -- Obter o jogador local
+    local jogador = game.Players.LocalPlayer
+    -- Obter a posição do jogador
+    local posicaoJogador = jogador.Character.HumanoidRootPart.Position
+
+    -- Loop para verificar todos os baús no jogo
+    for _, baú in pairs(game.Workspace:GetChildren()) do
+        if baú:IsA("Model") and baú.Name == "Chest" then
+            -- Calcular a distância entre o jogador e o baú
+            local distancia = (baú.PrimaryPart.Position - posicaoJogador).magnitude
+            -- Se a distância for menor que um valor específico, coletar o baú
+            if distancia < 50 then
+                -- Mover o jogador para o baú
+                jogador.Character.HumanoidRootPart.CFrame = baú.PrimaryPart.CFrame
+                -- Esperar um pouco para garantir que o baú seja coletado
+                wait(0.5)
+            end
+        end
+    end
+end
+
+-- Loop infinito para coletar baús continuamente
+while true do
+    coletarBaus()
+    -- Esperar um pouco antes de verificar novamente
+    wait(5)
+end
+
+
+
+
+Section:NewButton("Auto farm al boss", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de Auto Farm de Bosses para Blox Fruits (Mar 3)
+
+-- Função para farmar o boss
+function farmarBoss(bossName)
+    local player = game.Players.LocalPlayer
+    local boss = game.Workspace.Enemies:FindFirstChild(bossName)
+    
+    if boss then
+        while boss and boss.Parent do
+            player.Character.HumanoidRootPart.CFrame = boss.HumanoidRootPart.CFrame
+            wait(0.5)
+            -- Atacar o boss
+            game:GetService("VirtualUser"):CaptureController()
+            game:GetService("VirtualUser"):Button1Down(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
+            wait(0.1)
+            game:GetService("VirtualUser"):Button1Up(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
+        end
+    end
+end
+
+-- Lista de bosses para farmar no Mar 3
+local bosses = {"Captain Elephant", "Stone", "Kilo Admiral", "Longma", "Island Empress" , "Beautiful Pirate", "Cake Queen"} -- Substitua pelos nomes reais dos bosses
+
+-- Loop infinito para farmar todos os bosses
+while true do
+    for _, bossName in pairs(bosses) do
+        farmarBoss(bossName)
+        wait(5) -- Esperar um pouco antes de ir para o próximo boss
+    end
+end
+
+
+
+local Tab = Window:NewTab("quest/itens")
+
+Section:NewButton("Auto Cdk (Beta)", "ButtonInfo", function()
+    print("Clicked")
+end)
+
+-- Script de Auto Missão para Cursed Dual Katana em Blox Fruits
+
+-- Função para iniciar a missão da Cursed Dual Katana
+local function startCDKMission()
+    local player = game.Players.LocalPlayer
+    local questGiver = game.Workspace.QuestGivers:FindFirstChild("Cursed Dual Katana Quest Giver")
+
+    if questGiver then
+        -- Simula a interação com o NPC para iniciar a missão
+        game:GetService("ReplicatedStorage").Remotes.StartQuest:InvokeServer(questGiver)
+        print("Missão da Cursed Dual Katana iniciada!")
+    else
+        print("NPC da missão não encontrado.")
+    end
+end
+
+-- Função para coletar os pergaminhos
+local function collectScrolls()
+    local player = game.Players.LocalPlayer
+    local scrollLocations = {
+        game.Workspace.Scrolls.Scroll1,
+        game.Workspace.Scrolls.Scroll2
+    }
+
+    for _, scroll in ipairs(scrollLocations) do
+        if scroll then
+            player.Character.HumanoidRootPart.CFrame = scroll.CFrame
+            wait(1) -- Espera 1 segundo para simular a coleta
+            fireclickdetector(scroll.ClickDetector)
+            print("Pergaminho coletado: " .. scroll.Name)
+        else
+            print("Pergaminho não encontrado: " .. scroll.Name)
+        end
+    end
+end
+
+-- Função para derrotar o boss Cursed Skeleton
+local function defeatCursedSkeleton()
+    local player = game.Players.LocalPlayer
+    local boss = game.Workspace.Bosses:FindFirstChild("Cursed Skeleton")
+
+    if boss then
+        player.Character.HumanoidRootPart.CFrame = boss.HumanoidRootPart.CFrame
+        while boss.Humanoid.Health > 0 do
+            -- Simula ataques ao boss
+            game:GetService("ReplicatedStorage").Remotes.Attack:InvokeServer(boss)
+            wait(0.5) -- Espera 0.5 segundos entre os ataques
+        end
+        print("Boss Cursed Skeleton derrotado!")
+    else
+        print("Boss Cursed Skeleton não encontrado.")
+    end
+end
+
+-- Executa as funções de iniciar a missão, coletar os pergaminhos e derrotar o boss
+startCDKMission()
+wait(5) -- Espera 5 segundos antes de coletar os pergaminhos
+collectScrolls()
+wait(5) -- Espera 5 segundos antes de derrotar o boss
+defeatCursedSkeleton()
+
+
+
+
+
+
+
+
+
+
+Section:NewButton("Auto Soul guitar (Beta)", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de Auto Soul Guitar na Lua Cheia para Blox Fruits
+
+-- Função para verificar se é lua cheia
+local function isFullMoon()
+    local moon = game.Lighting:FindFirstChild("Moon")
+    return moon and moon.Texture == "rbxassetid://1234567890" -- Substitua pelo ID da textura da lua cheia
+end
+
+-- Função para iniciar a missão da Soul Guitar
+local function startSoulGuitarMission()
+    local player = game.Players.LocalPlayer
+    local questGiver = game.Workspace.QuestGivers:FindFirstChild("Soul Guitar Quest Giver")
+
+    if questGiver then
+        -- Simula a interação com o NPC para iniciar a missão
+        game:GetService("ReplicatedStorage").Remotes.StartQuest:InvokeServer(questGiver)
+        print("Missão da Soul Guitar iniciada!")
+    else
+        print("NPC da missão não encontrado.")
+    end
+end
+
+-- Função para completar a missão da Soul Guitar
+local function completeSoulGuitarMission()
+    local player = game.Players.LocalPlayer
+    local requiredItems = {"500 Bones", "250 Ectoplasm", "Dark Fragment", "5000 Fragments"}
+
+    for _, item in ipairs(requiredItems) do
+        -- Verifica se o jogador possui os itens necessários
+        if player.Backpack:FindFirstChild(item) then
+            print(item .. " encontrado.")
+        else
+            print(item .. " não encontrado.")
+            return
+        end
+    end
+
+    -- Simula a entrega dos itens para completar a missão
+    game:GetService("ReplicatedStorage").Remotes.CompleteQuest:InvokeServer(unpack(requiredItems))
+    print("Missão da Soul Guitar completada!")
+end
+
+-- Função principal para automatizar a obtenção da Soul Guitar
+local function autoSoulGuitar()
+    if isFullMoon() then
+        startSoulGuitarMission()
+        wait(5) -- Espera 5 segundos antes de tentar completar a missão
+        completeSoulGuitarMission()
+    else
+        print("Não é lua cheia. Aguardando...")
+    end
+end
+
+-- Executa a função principal
+autoSoulGuitar()
+
+
+
+
+
+
+
+Section:NewButton("Auto rip_indra, "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de Auto Rip_Indra para Blox Fruits
+
+-- Função para encontrar e derrotar o boss Rip_Indra
+local function defeatRipIndra()
+    local player = game.Players.LocalPlayer
+    local boss = game.Workspace.Bosses:FindFirstChild("Rip_Indra")
+
+    if boss then
+        -- Teleporta o jogador para o boss
+        player.Character.HumanoidRootPart.CFrame = boss.HumanoidRootPart.CFrame
+        wait(1) -- Espera 1 segundo para garantir que o jogador esteja no local
+
+        -- Loop para atacar o boss até derrotá-lo
+        while boss.Humanoid.Health > 0 do
+            -- Simula ataques ao boss
+            game:GetService("ReplicatedStorage").Remotes.Attack:InvokeServer(boss)
+            wait(0.5) -- Espera 0.5 segundos entre os ataques
+        end
+        print("Boss Rip_Indra derrotado!")
+    else
+        print("Boss Rip_Indra não encontrado.")
+    end
+end
+
+-- Executa a função para derrotar o boss Rip_Indra
+defeatRipIndra()
+
+
+
+
+
+
+
+
+Section:NewButton("Auto yama", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de Auto Yama para Blox Fruits
+
+-- Função para teletransportar para a Ilha Hydra
+local function teleportToHydraIsland()
+    local player = game.Players.LocalPlayer
+    local hydraIslandLocation = CFrame.new(5227, 38, -1326) -- Coordenadas da Ilha Hydra
+    player.Character.HumanoidRootPart.CFrame = hydraIslandLocation
+    print("Teletransportado para a Ilha Hydra.")
+end
+
+-- Função para derrotar 30 Elite Bosses
+local function defeatEliteBosses()
+    local player = game.Players.LocalPlayer
+    local eliteBossesDefeated = 0
+
+    while eliteBossesDefeated < 30 do
+        local boss = game.Workspace.Bosses:FindFirstChild("EliteBoss")
+        if boss then
+            player.Character.HumanoidRootPart.CFrame = boss.HumanoidRootPart.CFrame
+            wait(1) -- Espera 1 segundo para garantir que o jogador esteja no local
+
+            -- Loop para atacar o boss até derrotá-lo
+            while boss.Humanoid.Health > 0 do
+                game:GetService("ReplicatedStorage").Remotes.Attack:InvokeServer(boss)
+                wait(0.5) -- Espera 0.5 segundos entre os ataques
+            end
+            eliteBossesDefeated = eliteBossesDefeated + 1
+            print("Elite Boss derrotado! Total: " .. eliteBossesDefeated)
+        else
+            print("Elite Boss não encontrado. Tentando novamente em 10 segundos.")
+            wait(10) -- Espera 10 segundos antes de procurar novamente
+        end
+    end
+end
+
+-- Função para verificar se o jogador é digno
+local function checkWorthy()
+    local player = game.Players.LocalPlayer
+    local worthy = player:FindFirstChild("Worthy")
+
+    if worthy and worthy.Value then
+        print("Você é digno de obter a espada Yama.")
+        return true
+    else
+        print("Você não é digno de obter a espada Yama.")
+        return false
+    end
+end
+
+-- Função principal para obter a espada Yama
+local function getYamaSword()
+    teleportToHydraIsland()
+    wait(5) -- Espera 5 segundos antes de começar a derrotar os bosses
+    defeatEliteBosses()
+    wait(5) -- Espera 5 segundos antes de verificar se é digno
+
+    if checkWorthy() then
+        local yamaSwordLocation = CFrame.new(5240, 38, -1330) -- Coordenadas da espada Yama
+        player.Character.HumanoidRootPart.CFrame = yamaSwordLocation
+        print("Espada Yama obtida!")
+    else
+        print("Você não é digno de obter a espada Yama. Tente novamente.")
+    end
+end
+
+-- Executa a função principal
+getYamaSword()
+
+
+
+
+
+
+
+
+
+
+
+
+Section:NewButton("Auto tuchita", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de Auto Tushita para Blox Fruits
+
+-- Função para teletransportar para a Ilha Hydra
+local function teleportToHydraIsland()
+    local player = game.Players.LocalPlayer
+    local hydraIslandLocation = CFrame.new(5227, 38, -1326) -- Coordenadas da Ilha Hydra
+    player.Character.HumanoidRootPart.CFrame = hydraIslandLocation
+    print("Teletransportado para a Ilha Hydra.")
+end
+
+-- Função para ir atrás da cachoeira e quebrar a parede da sala Yama
+local function breakYamaWall()
+    local player = game.Players.LocalPlayer
+    local yamaWallLocation = CFrame.new(5240, 38, -1330) -- Coordenadas da parede da sala Yama
+    player.Character.HumanoidRootPart.CFrame = yamaWallLocation
+    wait(1) -- Espera 1 segundo para garantir que o jogador esteja no local
+
+    -- Simula a quebra da parede
+    local yamaWall = game.Workspace:FindFirstChild("YamaWall")
+    if yamaWall then
+        fireclickdetector(yamaWall.ClickDetector)
+        print("Parede da sala Yama quebrada.")
+    else
+        print("Parede da sala Yama não encontrada.")
+    end
+end
+
+-- Função para se teletransportar para o portal atrás da água específica
+local function teleportToPortal()
+    local player = game.Players.LocalPlayer
+    local portalLocation = CFrame.new(5300, 38, -1400) -- Coordenadas do portal
+    player.Character.HumanoidRootPart.CFrame = portalLocation
+    print("Teletransportado para o portal.")
+end
+
+-- Função para completar a missão com a tocha
+local function completeTorchMission()
+    local player = game.Players.LocalPlayer
+    local torchLocation = CFrame.new(5350, 38, -1450) -- Coordenadas da tocha
+    player.Character.HumanoidRootPart.CFrame = torchLocation
+    print("Missão com a tocha iniciada.")
+    
+    -- Simula a interação com a tocha
+    local torch = game.Workspace:FindFirstChild("Torch")
+    if torch then
+        fireclickdetector(torch.ClickDetector)
+        print("Tocha acesa.")
+    else
+        print("Tocha não encontrada.")
+    end
+end
+
+-- Função para derrotar o chefe Longma e obter a espada Tushita
+local function defeatLongmaBoss()
+    local player = game.Players.LocalPlayer
+    local boss = game.Workspace.Bosses:FindFirstChild("Longma")
+
+    if boss then
+        player.Character.HumanoidRootPart.CFrame = boss.HumanoidRootPart.CFrame
+        wait(1) -- Espera 1 segundo para garantir que o jogador esteja no local
+
+        -- Loop para atacar o boss até derrotá-lo
+        while boss.Humanoid.Health > 0 do
+            -- Simula ataques ao boss
+            game:GetService("ReplicatedStorage").Remotes.Attack:InvokeServer(boss)
+            wait(0.5) -- Espera 0.5 segundos entre os ataques
+        end
+        print("Boss Longma derrotado!")
+    else
+        print("Boss Longma não encontrado.")
+    end
+end
+
+-- Executa as funções passo a passo
+teleportToHydraIsland()
+wait(5) -- Espera 5 segundos antes de quebrar a parede
+breakYamaWall()
+wait(5) -- Espera 5 segundos antes de se teletransportar para o portal
+teleportToPortal()
+wait(5) -- Espera 5 segundos antes de completar a missão com a tocha
+completeTorchMission()
+wait(5) -- Espera 5 segundos antes de derrotar o  
+
+
+Section:NewButton("Training Dummy", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de Auto Training Dummy para Blox Fruits
+
+-- Variáveis principais
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local questGiver = workspace:WaitForChild("QuestGiver") -- Certifique-se de que o nome do NPC está correto
+local dummy = workspace:WaitForChild("TrainingDummy") -- Certifique-se de que o nome do dummy está correto
+
+-- Função para pegar a quest
+local function getQuest()
+    humanoid:MoveTo(questGiver.Position)
+    wait(1) -- Tempo de espera para chegar ao NPC
+    fireproximityprompt(questGiver.ProximityPrompt) -- Interage com o NPC para pegar a quest
+end
+
+-- Função para atacar o dummy
+local function autoTrain()
+    while true do
+        if dummy and dummy:FindFirstChild("Humanoid") then
+            humanoid:MoveTo(dummy.Position)
+            wait(1) -- Tempo de espera entre os ataques
+            humanoid:MoveTo(dummy.Position)
+        end
+        wait(0.1) -- Intervalo entre as verificações
+    end
+end
+
+-- Iniciar o processo de pegar a quest e treinar
+getQuest()
+autoTrain()
+
+
+
+
+
+Section:NewButton("Auto buy Haki color", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de Auto Buy Haki Color para Blox Fruits
+
+-- Variáveis principais
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local hakiSeller = workspace:WaitForChild("master of auras") -- Certifique-se de que o nome do NPC está correto
+
+-- Função para comprar Haki Color
+local function buyHakiColor()
+    humanoid:MoveTo(hakiSeller.Position)
+    wait(1) -- Tempo de espera para chegar ao NPC
+    fireproximityprompt(hakiSeller.ProximityPrompt) -- Interage com o NPC para abrir a loja
+    wait(1) -- Tempo de espera para abrir a loja
+    -- Supondo que o botão de compra tenha o nome "BuyButton"
+    local buyButton = hakiSeller:FindFirstChild("BuyButton")
+    if buyButton then
+        fireclickdetector(buyButton.ClickDetector) -- Compra a cor de Haki
+    end
+end
+
+-- Iniciar o processo de compra de Haki Color
+buyHakiColor()
+
+
+local Tab = Window:NewTab("Raid/Fruit")
+
+Section:NewButton("auto raid", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de Auto Raid para Blox Fruits
+
+-- Variáveis principais
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local raidNPC = workspace:WaitForChild("RaidNPC") -- Certifique-se de que o nome do NPC está correto
+
+-- Função para iniciar a raid
+local function startRaid()
+    humanoid:MoveTo(raidNPC.Position)
+    wait(1) -- Tempo de espera para chegar ao NPC
+    fireproximityprompt(raidNPC.ProximityPrompt) -- Interage com o NPC para iniciar a raid
+end
+
+-- Função para derrotar os NPCs durante a raid
+local function defeatNPCs()
+    while true do
+        for _, npc in pairs(workspace:FindPartsInRegion3WithWhiteList(Region3.new(Vector3.new(-1000, 0, -1000), Vector3.new(1000, 1000, 1000)), {workspace.Enemies})) do
+            if npc and npc:FindFirstChild("Humanoid") then
+                humanoid:MoveTo(npc.Position)
+                wait(1) -- Tempo de espera entre os ataques
+                humanoid:MoveTo(npc.Position)
+            end
+        end
+        wait(0.1) -- Intervalo entre as verificações
+    end
+end
+
+-- Iniciar o processo de raid automática e derrotar NPCs
+startRaid()
+defeatNPCs()
+
+Section:NewButton("Auto tp fruits", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de Auto TP para Frutas em Blox Fruits
+
+-- Variáveis principais
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+-- Função para teletransportar para a fruta mais próxima
+local function teleportToFruit()
+    while true do
+        for _, fruit in pairs(workspace:GetChildren()) do
+            if fruit:IsA("Tool") and fruit:FindFirstChild("Handle") then
+                humanoidRootPart.CFrame = fruit.Handle.CFrame
+                wait(1) -- Tempo de espera entre os teletransportes
+            end
+        end
+        wait(5) -- Intervalo entre as verificações
+    end
+end
+
+-- Iniciar o processo de teletransporte automático para frutas
+teleportToFruit()
+
+
+
+
+Section:NewButton("Auto store fruit, "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de Auto Store Fruit para Blox Fruits
+
+-- Variáveis principais
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+local fruitStorageNPC = workspace:WaitForChild("FruitStorageNPC") -- Certifique-se de que o nome do NPC está correto
+
+-- Função para armazenar a fruta
+local function storeFruit()
+    humanoidRootPart.CFrame = fruitStorageNPC.CFrame
+    wait(1) -- Tempo de espera para chegar ao NPC
+    fireproximityprompt(fruitStorageNPC.ProximityPrompt) -- Interage com o NPC para abrir o armazenamento
+    wait(1) -- Tempo de espera para abrir o armazenamento
+    -- Supondo que o botão de armazenamento tenha o nome "StoreButton"
+    local storeButton = fruitStorageNPC:FindFirstChild("StoreButton")
+    if storeButton then
+        fireclickdetector(storeButton.ClickDetector) -- Armazena a fruta
+    end
+end
+
+-- Função para detectar e armazenar frutas automaticamente
+local function autoStoreFruit()
+    while true do
+        for _, fruit in pairs(workspace:GetChildren()) do
+            if fruit:IsA("Tool") and fruit:FindFirstChild("Handle") then
+                humanoidRootPart.CFrame = fruit.Handle.CFrame
+                wait(1) -- Tempo de espera para pegar a fruta
+                storeFruit() -- Armazena a fruta
+            end
+        end
+        wait(5) -- Intervalo entre as verificações
+    end
+end
+
+-- Iniciar o processo de armazenamento automático de frutas
+autoStoreFruit()
+
+
+
+
+
+Section:NewButton("Auto ramdonw fruit", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de Auto Random Fruit para Blox Fruits
+
+-- Variáveis principais
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+local fruitDealer = workspace:WaitForChild("FruitDealer") -- Certifique-se de que o nome do NPC está correto
+
+-- Função para obter uma fruta aleatória
+local function getRandomFruit()
+    humanoidRootPart.CFrame = fruitDealer.CFrame
+    wait(1) -- Tempo de espera para chegar ao NPC
+    fireproximityprompt(fruitDealer.ProximityPrompt) -- Interage com o NPC para abrir a loja de frutas
+    wait(1) -- Tempo de espera para abrir a loja
+    -- Supondo que o botão de compra aleatória tenha o nome "RandomFruitButton"
+    local randomFruitButton = fruitDealer:FindFirstChild("RandomFruitButton")
+    if randomFruitButton then
+        fireclickdetector(randomFruitButton.ClickDetector) -- Compra uma fruta aleatória
+    end
+end
+
+-- Iniciar o processo de obtenção de frutas aleatórias
+getRandomFruit()
+
+
+
+
+Section:NewButton("Esp fruit", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de ESP para Frutas em Blox Fruits
+
+-- Função para criar um ESP para frutas
+local function createFruitESP(fruit)
+    local billboard = Instance.new("BillboardGui", fruit)
+    billboard.Size = UDim2.new(0, 100, 0, 100)
+    billboard.AlwaysOnTop = true
+
+    local label = Instance.new("TextLabel", billboard)
+    label.Size = UDim2.new(1, 0, 1, 0)
+    label.BackgroundTransparency = 1
+    label.Text = "Fruta"
+    label.TextColor3 = Color3.fromRGB(255, 0, 0)
+    label.TextScaled = true
+end
+
+-- Função para adicionar ESP a todas as frutas no jogo
+local function addESPToFruits()
+    for _, fruit in pairs(workspace:GetChildren()) do
+        if fruit:IsA("Tool") and fruit:FindFirstChild("Handle") then
+            createFruitESP(fruit)
+        end
+    end
+end
+
+-- Monitorar novas frutas que aparecem no jogo
+workspace.ChildAdded:Connect(function(child)
+    if child:IsA("Tool") and child:FindFirstChild("Handle") then
+        createFruitESP(child)
+    end
+end)
+
+-- Adicionar ESP às frutas já existentes
+addESPToFruits()
+
+
+
+
+
+
+
+Section:NewButton("esp player", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de ESP para Jogadores em Blox Fruits
+
+-- Função para criar um ESP para jogadores
+local function createPlayerESP(player)
+    if player ~= game.Players.LocalPlayer then
+        local billboard = Instance.new("BillboardGui", player.Character.Head)
+        billboard.Size = UDim2.new(0, 100, 0, 100)
+        billboard.AlwaysOnTop = true
+
+        local label = Instance.new("TextLabel", billboard)
+        label.Size = UDim2.new(1, 0, 1, 0)
+        label.BackgroundTransparency = 1
+        label.Text = player.Name
+        label.TextColor3 = Color3.fromRGB(0, 255, 0)
+        label.TextScaled = true
+    end
+end
+
+-- Função para adicionar ESP a todos os jogadores no jogo
+local function addESPToPlayers()
+    for _, player in pairs(game.Players:GetPlayers()) do
+        if player.Character and player.Character:FindFirstChild("Head") then
+            createPlayerESP(player)
+        end
+    end
+end
+
+-- Monitorar novos jogadores que entram no jogo
+game.Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function(character)
+        if character:FindFirstChild("Head") then
+            createPlayerESP(player)
+        end
+    end)
+end)
+
+-- Adicionar ESP aos jogadores já existentes
+addESPToPlayers()
+
+
+
+
+
+
+
+
+Section:NewButton("esp island", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de ESP para Ilhas em Blox Fruits
+
+-- Função para criar um ESP para ilhas
+local function createIslandESP(island)
+    local billboard = Instance.new("BillboardGui", island)
+    billboard.Size = UDim2.new(0, 200, 0, 50)
+    billboard.AlwaysOnTop = true
+
+    local label = Instance.new("TextLabel", billboard)
+    label.Size = UDim2.new(1, 0, 1, 0)
+    label.BackgroundTransparency = 1
+    label.Text = island.Name
+    label.TextColor3 = Color3.fromRGB(0, 0, 255)
+    label.TextScaled = true
+end
+
+-- Função para adicionar ESP a todas as ilhas no jogo
+local function addESPToIslands()
+    for _, island in pairs(workspace:GetChildren()) do
+        if island:IsA("Model") and island:FindFirstChild("IslandMarker") then
+            createIslandESP(island)
+        end
+    end
+end
+
+-- Monitorar novas ilhas que aparecem no jogo
+workspace.ChildAdded:Connect(function(child)
+    if child:IsA("Model") and child:FindFirstChild("IslandMarker") then
+        createIslandESP(child)
+    end
+end)
+
+-- Adicionar ESP às ilhas já existentes
+addESPToIslands()
+
+
+
+
+
+
+
+
+Section:NewButton("esp miragem", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de ESP para Ilha da Miragem em Blox Fruits
+
+-- Função para criar um ESP para a Ilha da Miragem
+local function createMirageESP(island)
+    local billboard = Instance.new("BillboardGui", island)
+    billboard.Size = UDim2.new(0, 200, 0, 50)
+    billboard.AlwaysOnTop = true
+
+    local label = Instance.new("TextLabel", billboard)
+    label.Size = UDim2.new(1, 0, 1, 0)
+    label.BackgroundTransparency = 1
+    label.Text = "Ilha da Miragem"
+    label.TextColor3 = Color3.fromRGB(255, 165, 0)
+    label.TextScaled = true
+end
+
+-- Função para adicionar ESP à Ilha da Miragem no jogo
+local function addESPToMirageIsland()
+    for _, island in pairs(workspace:GetChildren()) do
+        if island:IsA("Model") and island:FindFirstChild("MirageMarker") then
+            createMirageESP(island)
+        end
+    end
+end
+
+-- Monitorar novas ilhas que aparecem no jogo
+workspace.ChildAdded:Connect(function(child)
+    if child:IsA("Model") and child:FindFirstChild("MirageMarker") then
+        createMirageESP(child)
+    end
+end)
+
+-- Adicionar ESP à Ilha da Miragem já existente
+addESPToMirageIsland()
+
+
+
+
+
+
+
+Section:NewButton("esp chest", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script de ESP para Baús em Blox Fruits
+
+-- Função para criar um ESP para baús
+local function createChestESP(chest)
+    local billboard = Instance.new("BillboardGui", chest)
+    billboard.Size = UDim2.new(0, 100, 0, 50)
+    billboard.AlwaysOnTop = true
+
+    local label = Instance.new("TextLabel", billboard)
+    label.Size = UDim2.new(1, 0, 1, 0)
+    label.BackgroundTransparency = 1
+    label.Text = "Baú"
+    label.TextColor3 = Color3.fromRGB(255, 215, 0)
+    label.TextScaled = true
+end
+
+-- Função para adicionar ESP a todos os baús no jogo
+local function addESPToChests()
+    for _, chest in pairs(workspace:GetChildren()) do
+        if chest:IsA("Model") and chest:FindFirstChild("ChestMarker") then
+            createChestESP(chest)
+        end
+    end
+end
+
+-- Monitorar novos baús que aparecem no jogo
+workspace.ChildAdded:Connect(function(child)
+    if child:IsA("Model") and child:FindFirstChild("ChestMarker") then
+        createChestESP(child)
+    end
+end)
+
+-- Adicionar ESP aos baús já existentes
+addESPToChests()
+
+
+
+
+
+local Tab = Window:NewTab("teleport")
+Section:NewButton("tp Port Town", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script to teleport to Port Town in Blox Fruits
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Coordinates for Port Town
+local portTownPosition = Vector3.new(-290, 43, 5530)
+
+-- Function to teleport
+local function teleportToPortTown()
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        character.HumanoidRootPart.CFrame = CFrame.new(portTownPosition)
+    else
+        warn("Character or HumanoidRootPart not found!")
+    end
+end
+
+-- Teleport the player
+teleportToPortTown()
+
+
+
+
+Section:NewButton("Hydra Island", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script to teleport to Hydra Island in Blox Fruits
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Coordinates for Hydra Island
+local hydraIslandPosition = Vector3.new(5225, 142, -220)
+
+-- Function to teleport
+local function teleportToHydraIsland()
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        character.HumanoidRootPart.CFrame = CFrame.new(hydraIslandPosition)
+    else
+        warn("Character or HumanoidRootPart not found!")
+    end
+end
+
+-- Teleport the player
+teleportToHydraIsland()
+
+
+
+
+Section:NewButton("Great Tree", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script to teleport to Great Tree in Blox Fruits
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Coordinates for Great Tree
+local greatTreePosition = Vector3.new(2200, 25, -2200)
+
+-- Function to teleport
+local function teleportToGreatTree()
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        character.HumanoidRootPart.CFrame = CFrame.new(greatTreePosition)
+    else
+        warn("Character or HumanoidRootPart not found!")
+    end
+end
+
+-- Teleport the player
+teleportToGreatTree()
+
+
+
+
+
+
+Section:NewButton("Floating Turtle", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script to teleport to Floating Turtle in Blox Fruits
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Coordinates for Floating Turtle
+local floatingTurtlePosition = Vector3.new(-10500, 331, -8500)
+
+-- Function to teleport
+local function teleportToFloatingTurtle()
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        character.HumanoidRootPart.CFrame = CFrame.new(floatingTurtlePosition)
+    else
+        warn("Character or HumanoidRootPart not found!")
+    end
+end
+
+-- Teleport the player
+teleportToFloatingTurtle()
+
+
+
+
+
+
+
+
+
+
+
+Section:NewButton("Castle on the Sea", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script to teleport to Castle on the Sea in Blox Fruits
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Coordinates for Castle on the Sea
+local castleOnTheSeaPosition = Vector3.new(-5000, 142, 5000)
+
+-- Function to teleport
+local function teleportToCastleOnTheSea()
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        character.HumanoidRootPart.CFrame = CFrame.new(castleOnTheSeaPosition)
+    else
+        warn("Character or HumanoidRootPart not found!")
+    end
+end
+
+-- Teleport the player
+teleportToCastleOnTheSea()
+
+
+
+
+
+
+
+
+
+
+Section:NewButton("Haunted Castle", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script to teleport to Haunted Castle in Blox Fruits
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Coordinates for Haunted Castle
+local hauntedCastlePosition = Vector3.new(-9500, 142, 5530)
+
+-- Function to teleport
+local function teleportToHauntedCastle()
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        character.HumanoidRootPart.CFrame = CFrame.new(hauntedCastlePosition)
+    else
+        warn("Character or HumanoidRootPart not found!")
+    end
+end
+
+-- Teleport the player
+teleportToHauntedCastle()
+
+
+
+
+
+Section:NewButton("Sea of Treats", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script to teleport to Sea of Treats in Blox Fruits
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Coordinates for Sea of Treats
+local seaOfTreatsPosition = Vector3.new(-2044, 5, -9864)
+
+-- Function to teleport
+local function teleportToSeaOfTreats()
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        character.HumanoidRootPart.CFrame = CFrame.new(seaOfTreatsPosition)
+    else
+        warn("Character or HumanoidRootPart not found!")
+    end
+end
+
+-- Teleport the player
+teleportToSeaOfTreats()
+
+
+
+
+Section:NewButton("Tiki Outpost", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script to teleport to Tiki Outpost in Blox Fruits
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Coordinates for Tiki Outpost
+local tikiOutpostPosition = Vector3.new(-13500, 331, -8500)
+
+-- Function to teleport
+local function teleportToTikiOutpost()
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        character.HumanoidRootPart.CFrame = CFrame.new(tikiOutpostPosition)
+    else
+        warn("Character or HumanoidRootPart not found!")
+    end
+end
+
+-- Teleport the player
+teleportToTikiOutpost()
+
+
+
+
+
+local Tab = Window:NewTab("Shop")
+
+----------------Races---------------
+
+Section:NewButton("buy Raçe Ghoul", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script to auto buy Ghoul race in Blox Fruits
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Function to buy Ghoul race
+local function buyGhoulRace()
+    -- Check if player has enough Ectoplasm and Hellfire Torch
+    local ectoplasmCount = player.Backpack:FindFirstChild("Ectoplasm") and player.Backpack.Ectoplasm.Value or 0
+    local hasHellfireTorch = player.Backpack:FindFirstChild("Hellfire Torch") ~= nil
+
+    if ectoplasmCount >= 100 and hasHellfireTorch then
+        -- Teleport to the NPC that sells Ghoul race
+        local npcPosition = Vector3.new(1234, 56, 789) -- Replace with actual NPC coordinates
+        character.HumanoidRootPart.CFrame = CFrame.new(npcPosition)
+
+        -- Interact with the NPC to buy Ghoul race
+        wait(2) -- Wait for teleport to complete
+        local args = {
+            [1] = "BuyRace",
+            [2] = "Ghoul"
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    else
+        warn("Not enough Ectoplasm or missing Hellfire Torch!")
+    end
+end
+
+-- Execute the function
+buyGhoulRace()
+
+
+
+
+
+
+
+
+Section:NewButton("buy Raçe Cyborg", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script to auto buy Cyborg race in Blox Fruits
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Function to buy Cyborg race
+local function buyCyborgRace()
+    -- Check if player has the required items
+    local hasFistOfDarkness = player.Backpack:FindFirstChild("Fist of Darkness") ~= nil
+    local hasCoreBrain = player.Backpack:FindFirstChild("Core Brain") ~= nil
+
+    if hasFistOfDarkness and hasCoreBrain then
+        -- Teleport to the NPC that sells Cyborg race
+        local npcPosition = Vector3.new(1234, 56, 789) -- Replace with actual NPC coordinates
+        character.HumanoidRootPart.CFrame = CFrame.new(npcPosition)
+
+        -- Interact with the NPC to buy Cyborg race
+        wait(2) -- Wait for teleport to complete
+        local args = {
+            [1] = "BuyRace",
+            [2] = "Cyborg"
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    else
+        warn("Missing Fist of Darkness or Core Brain!")
+    end
+end
+
+-- Execute the function
+buyCyborgRace()
+
+
+-----------------Swords-----------------
+
+Section:NewButton("buy katana", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script para comprar Dual Katana em Blox Fruits
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Função para comprar Dual Katana
+local function buyDualKatana()
+    -- Teleportar para o NPC que vende a Dual Katana
+    local npcPosition = Vector3.new(1050, 16, 1400) -- Substitua pelas coordenadas reais do NPC
+    character.HumanoidRootPart.CFrame = CFrame.new(npcPosition)
+
+    -- Interagir com o NPC para comprar a Dual Katana
+    wait(2) -- Esperar o teleporte completar
+    local args = {
+        [1] = "BuyItem",
+        [2] = "Dual Katana"
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end
+
+-- Executar a função
+buyDualKatana()
+
+
+
+
+Section:NewButton("buy Cutlass", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Certifique-se de que você está no jogo Blox Fruits antes de executar este script
+
+local toolName = "Cutlass" -- Nome da ferramenta que você quer comprar
+
+-- Função para comprar a ferramenta
+local function buyTool(toolName)
+    local args = {
+        [1] = toolName
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem", unpack(args))
+end
+
+-- Chama a função para comprar a Cutlass
+buyTool(toolName)
+
+
+
+
+
+
+Section:NewButton("buy Dual Katana", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script para comprar Dual Katana em Blox Fruits
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Função para comprar Dual Katana
+local function buyDualKatana()
+    -- Teleportar para o NPC que vende a Dual Katana
+    local npcPosition = Vector3.new(1050, 16, 1400) -- Substitua pelas coordenadas reais do NPC
+    character.HumanoidRootPart.CFrame = CFrame.new(npcPosition)
+
+    -- Interagir com o NPC para comprar a Dual Katana
+    wait(2) -- Esperar o teleporte completar
+    local args = {
+        [1] = "BuyItem",
+        [2] = "Dual Katana"
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end
+
+-- Executar a função
+buyDualKatana()
+
+
+
+
+
+
+
+
+Section:NewButton("buy Iron Mace", "ButtonInfo", function()
+    print("Clicked")
+end)
+local player = game.Players.LocalPlayer
+local shop = game.Workspace:FindFirstChild("Sword Dealer of the West")
+
+if shop then
+    local purchaseEvent = shop:FindFirstChild("Purchase")
+    if purchaseEvent then
+        purchaseEvent:InvokeServer("Iron Mace")
+        print("Iron Mace comprada com sucesso!")
+    else
+        print("Evento de compra não encontrado.")
+    end
+else
+    print("Vendedor não encontrado.")
+end
+
+
+
+
+
+
+
+
+Section:NewButton("buy Triple Katana", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script para comprar Triple Katana em Blox Fruits
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Função para comprar Triple Katana
+local function buyTripleKatana()
+    -- Teleportar para o NPC que vende a Triple Katana
+    local npcPosition = Vector3.new(1050, 16, 1400) -- Substitua pelas coordenadas reais do NPC
+    character.HumanoidRootPart.CFrame = CFrame.new(npcPosition)
+
+    -- Interagir com o NPC para comprar a Triple Katana
+    wait(2) -- Esperar o teleporte completar
+    local args = {
+        [1] = "BuyItem",
+        [2] = "Triple Katana"
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end
+
+-- Executar a função
+buyTripleKatana()
+
+
+
+
+
+
+Section:NewButton("buy Pipe", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Certifique-se de que você está usando um executor de scripts compatível com Roblox, como Synapse X ou Krnl.
+
+local itemName = "Pipe" -- Nome do item que você deseja comprar
+
+-- Função para comprar o item
+function buyItem(itemName)
+    local args = {
+        [1] = itemName
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem", unpack(args))
+end
+
+-- Chama a função para comprar o item
+buyItem(itemName)
+
+
+
+
+
+Section:NewButton("buy Soul Cane", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script para comprar Soul Cane em Blox Fruits
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Função para comprar Soul Cane
+local function buySoulCane()
+    -- Teleportar para o NPC que vende a Soul Cane
+    local npcPosition = Vector3.new(-5500, 142, -2800) -- Substitua pelas coordenadas reais do NPC
+    character.HumanoidRootPart.CFrame = CFrame.new(npcPosition)
+
+    -- Interagir com o NPC para comprar a Soul Cane
+    wait(2) -- Esperar o teleporte completar
+    local args = {
+        [1] = "BuyItem",
+        [2] = "Soul Cane"
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end
+
+-- Executar a função
+buySoulCane()
+
+
+
+
+Section:NewButton("buy Bisento", "ButtonInfo", function()
+    print("Clicked")
+end)
+local function buyBisento()
+    local player = game.Players.LocalPlayer
+    local shop = game:GetService("Workspace").Shops.BisentoShop
+
+    if player and shop then
+        local args = {
+            [1] = "Purchase",
+            [2] = "Bisento"
+        }
+        shop:InvokeServer(unpack(args))
+        print("Bisento comprado com sucesso!")
+    else
+        print("Não foi possível encontrar o jogador ou a loja.")
+    end
+end
+
+buyBisento()
+
+
+
+
+
+
+
+Section:NewButton("buy Dual-Headed Blade", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script para comprar Dual-Headed Blade em Blox Fruits
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Função para comprar Dual-Headed Blade
+local function buyDualHeadedBlade()
+    -- Teleportar para o NPC que vende a Dual-Headed Blade
+    local npcPosition = Vector3.new(-5000, 142, 5000) -- Substitua pelas coordenadas reais do NPC
+    character.HumanoidRootPart.CFrame = CFrame.new(npcPosition)
+
+    -- Interagir com o NPC para comprar a Dual-Headed Blade
+    wait(2) -- Esperar o teleporte completar
+    local args = {
+        [1] = "BuyItem",
+        [2] = "Dual-Headed Blade"
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end
+
+-- Executar a função
+buyDualHeadedBlade()
+
+
+
+
+
+
+
+Section:NewButton("buy Midnight Blade", "ButtonInfo", function()
+    print("Clicked")
+end)
+-- Script para comprar Midnight Blade em Blox Fruits
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Função para comprar Midnight Blade
+local function buyMidnightBlade()
+    -- Teleportar para o NPC que vende a Midnight Blade
+    local npcPosition = Vector3.new(-5500, 142, -2800) -- Substitua pelas coordenadas reais do NPC
+    character.HumanoidRootPart.CFrame = CFrame.new(npcPosition)
+
+    -- Interagir com o NPC para comprar a Midnight Blade
+    wait(2) -- Esperar o teleporte completar
+    local args = {
+        [1] = "BuyItem",
+        [2] = "Midnight Blade"
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end
+
+-- Executar a função
+buyMidnightBlade()
+
+
+
+
+
+
